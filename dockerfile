@@ -51,4 +51,5 @@ RUN wget https://download.owncloud.com/server/stable/owncloud-complete-latest.zi
 
 # 8. Exponer puerto y configurar entrada
 EXPOSE 80
+
 CMD ["apache2-foreground"]
