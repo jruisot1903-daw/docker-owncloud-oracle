@@ -35,4 +35,5 @@ services:
 
 volumes:
   oracle_data:
+
   owncloud_data:
