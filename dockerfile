@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libjpeg-dev \
     libicu-dev \
+    libldap2-dev \
     libzip-dev \
     && rm -rf /var/lib/apt/lists/*
 
@@ -42,7 +43,9 @@ RUN export PHP_OCI8_INSTANTCLIENT=/opt/oracle/instantclient \
 # 6. Instalar extensiones adicionales
 # Hemos añadido --with-gd para asegurar que encuentre las librerías de imagen
 RUN docker-php-ext-configure gd --with-jpeg \
-    && docker-php-ext-install pdo_mysql gd exif intl zip
+    && docker-php-ext-install pdo_mysql gd exif intl zip \
+	&& docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \ 
+    && docker-php-ext-install pdo_mysql gd exif intl zip ldap
 
 # 7. Descargar y preparar el código de OwnCloud
 RUN wget https://download.owncloud.com/server/stable/owncloud-complete-latest.zip -O /tmp/owncloud.zip \
@@ -53,3 +56,4 @@ RUN wget https://download.owncloud.com/server/stable/owncloud-complete-latest.zi
 EXPOSE 80
 
 CMD ["apache2-foreground"]
+
