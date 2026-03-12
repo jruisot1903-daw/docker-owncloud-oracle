@@ -1,7 +1,7 @@
 # OwnCloud con Soporte Oracle
 Este repositorio contiene la configuración necesaria para desplegar ownCloud utilizando una base de datos Oracle (OCI8), configurada y empaquetada mediante Docker.
 
-# 🚀 Arquitectura
+# 🏠 Arquitectura
 Este proyecto separa la lógica de la aplicación del almacenamiento de datos, garantizando un entorno portable y escalable.
 
 # 🛠 Requisitos previos
